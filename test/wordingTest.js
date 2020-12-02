@@ -9,7 +9,7 @@ var db = mysql.createConnection({
  
 db.connect();
 
-db.query('SELECT * from user', function (error, results, fields) {
+db.query('SELECT * from wording', function (error, results, fields) {
   if (error) throw error;
   console.log('TheResult is: ', results);
 });
