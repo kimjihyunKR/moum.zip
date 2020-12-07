@@ -6,4 +6,3 @@ var db = mysql.createConnection({
   password : '1234',
   database : 'moumzip'
 });
- 
