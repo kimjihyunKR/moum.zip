@@ -1,0 +1,62 @@
+.container {
+  max-width: 990px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.row:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 0 15px;
+}
+
+/* For Extra Small Size */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media screen and (min-width : 360px){
+  /* For Mobile */
+  .col-m-1 { width: 16.66%; }
+  .col-m-2 { width: 33.33%; }
+  .col-m-3 { width: 50%; }
+  .col-m-4 { width: 66.66%; }
+  .col-m-5 { width: 83.33%; }
+  .col-m-6 { width: 100%; }
+}
+
+@media screen and (min-width : 780px) {
+  /* For Tablet & PC */
+  .col-1 { width: 8.33%; }
+  .col-2 { width: 16.66%; }
+  .col-3 { width: 25%; }
+  .col-4 { width: 33.33%; }
+  .col-5 { width: 41.66%; }
+  .col-6 { width: 50%; }
+  .col-7 { width: 58.33%; }
+  .col-8 { width: 66.66%; }
+  .col-9 { width: 75%; }
+  .col-10 { width: 83.33%; }
+  .col-11 { width: 91.66%; }
+  .col-12 { width: 100%; }
+}
+
+/* 그리드 버튼을 눌렀을 때 */
+.grid-area {
+  z-index: -5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-area [class*="col-"] {
+  height: 100%;
+  background-color: rgba(143, 188, 143, 0.356);
+  background-clip: content-box;
+}
