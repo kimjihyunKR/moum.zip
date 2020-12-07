@@ -2,9 +2,9 @@
   "development": {
     "username": "root",
     "password": 1234,
-    "database": "database_development",
+    "database": "moumzip",
     "host": "127.0.0.1",
-    "dialect": "moumzip"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
