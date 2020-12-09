@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/css/grid-system.css">
-  <link rel="stylesheet" href="../public/css/common.css">
-  <link rel="stylesheet" href="../public/css/typo.css">
+{% include "./components/top.html"%}
   <title>moumzip</title>
 </head>
 <body>
   <div class="container">
-    <!-- {% include "./component/nav.html"%} -->
-    <nav>
-      <a href="#" class="logo">
-        moum.zip
-      </a>
-
-      <ul>
-        <li>
-          <a href="#">home</a>
-        </li>
-        <li>
-          <a href="#">my.zip</a>
-        </li>
-        <li></li>
-      </ul>
-
-      <ul class="nav-auth">
-        <li><a href="">Log in</a></li>
-        <li><a href="">Join us</a></li>
-      </ul>
-    </nav>
+    {% include "./components/nav.html"%}
 
     <section class="center-txt">
       <div ></div>
@@ -45,16 +18,16 @@
       </div>
     </section>
 
-     <!-- {% include "./component/footer.html"%} -->
-    <footer>
-      <p>
-        project by kim jihyun
-      </p>
-      <span>
-        <a href="#">contact</a>
-      </span>
-    </footer>
+   
+
+    {% include "./components/footer.html"%}
   </div> 
-  
+
+  <script>
+    document.querySelector('#btn-join').addEventListener('click',()=>{
+      console.log('click')
+      location.href="/join";
+    });
+  </script>
 </body>
 </html>

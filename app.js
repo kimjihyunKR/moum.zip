@@ -19,9 +19,11 @@ nunjucks.configure('views', {
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended : false}));
-app.use(express.static(path.join(__dirname, 'public'))); //정적 폴더 설정
+app.use('/static', express.static(__dirname + '/public'));
+// app.use(express.static(path.join(__dirname, '/public'))); //정적 폴더 설정
 
-app.use('/img', express.static(path.join(__dirname, 'uploads'))); //업로드한 이미지는 upload폴더에
+
+app.use('/img', express.static(path.join(__dirname, '/uploads'))); //업로드한 이미지는 upload폴더에
 
 //라우터 처리
 app.use('/', indexRouter);

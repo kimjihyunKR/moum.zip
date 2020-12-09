@@ -9,7 +9,7 @@ router.post('/join', async (req, res, next) => {
   try {
     //const exUser = await User.findOne({ where: { email } });
     let sql = 'SELECT user_id FROM users WHERE user_id=?';
-    db.connect();
+    // db.connect();
     db.query(sql,[id], function (error, results, fields) {
       if (error) throw error;
       if(results[0]){
