@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 const indexRouter = require('./routes'); //index생략
 const authRouter = require('./routes/auth');
 //const usersRouter = require('./routes/users');
-const wordingRouter = require('./routes/wording');
+const wordingRouter = require('./routes/wordings');
 
 const app = express();
 app.set('port', process.env.PORT || 3002);

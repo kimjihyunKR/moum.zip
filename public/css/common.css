@@ -1,0 +1,112 @@
+/* reset style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a { color: #000; text-decoration: none;}
+a:visited {color: #000; }
+a:link { color: #000; text-decoration: none;}
+a:visited { color: #000; text-decoration: none;}
+a:hover { color: #000; text-decoration: underline;}
+
+button {
+  background: none;
+  background-color: none;
+  border: none;
+  outline: none
+}
+
+/* layout style */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-hori {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* gnb bar */
+.logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-right: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+nav > ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+nav > ul > li {
+  display: inline-block;
+  padding : 0.5rem;
+}
+
+.nav-auth{
+  position: absolute;
+  right: 0;
+}
+
+/* footer */
+
+/* input field*/
+.input-field {
+  margin-bottom: 0.5rem;
+}
+.input-field > p {
+  margin-bottom: 3px;
+}
+.input-field > input {
+  width: 100%;
+  padding: 0.5rem;
+}
+/* default */
+.line {
+  width: 100%; 
+  height: 1px; 
+  visibility: visible; 
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  margin: 1rem 0;
+}
+
+/* btn */
+.btn {
+  cursor: pointer;
+  padding: 12px;
+}
+.btn-fill {
+  background-color: #000;
+  color: #fff;
+}
+.btn-fill:hover {
+  background-color: rgb(34, 34, 34);
+}
+.btn-skeleton {
+  border: 1px solid #000;
+}
+.btn-skeleton:hover{
+  background-color: #000;
+  color: #fff;
+}
