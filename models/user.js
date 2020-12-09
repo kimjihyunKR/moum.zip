@@ -1,38 +1,29 @@
-const Sequelize = require('sequelize');
+const mysql = require('mysql');
+const db = require('../config/db');
+const table = 'user';
+const con = mysql.createConnection(db);
+var returnValue;
 
-module.exports = class User extends Sequelize.Model {
-  static init(sequelize) {
-    return super.init({
-      user_id: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
-      },
-      name: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
-      },
-      nickname: {
-        type: Sequelize.STRING(20),
-        allowNull: true,
-      },
-    }, {
-      sequelize,
-      timestamps: false,
-      underscored: false,
-      modelName: 'User',
-      tableName: 'users',
-      paranoid: false,
-      charset: 'utf8',
-      collate: 'utf8_general_ci',
-    });
-  }
+module.exports = {
 
-  static associate(db) {
-    db.User.hasMany(db.Wording, { foreignKey: 'user_id' , sourceKey: 'user_id'});
-  }
-};
+  getAllUsers : () => {
+      db.connect();
+      let sql = 'select * from user';
+      db.query(sql, (err,results, fields) => {
+        if (err) throw err;
+        returnValue = results;
+      });
+      db.end();
+      return returnValue;
+    },
+    selectUserById : (id) => {
+      db.connect();
+      let sql = 'select user_id from user where user_id = ?';
+      db.query(sql, [id],(err, results, fields) => {
+        if(err) throw err;
+        returnValue = results[0].name;
+      });
+      db.end();
+      return returnValue;
+    }
+}

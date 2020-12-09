@@ -1,7 +1,22 @@
 const express = require('express');
 
+const indexRouter = require('./routes'); //index생략
+const usersRouter = require('./routes/users');
+const wordingRouter = require('./routes/wording');
+
 const app = express();
 app.set('port', process.env.PORT || 3002);
+app.set('view engine', 'html'); //view engine 설정
+app.use(express.static(path.join(__dirname, 'public'))); //정적 폴더 설정
+
+app.use('/img', express.static(path.join(__dirname, 'uploads'))); //업로드한 이미지는 upload폴더에
+
+//라우터 처리
+app.use('/', indexRouter);
+app.use('/auth', authRouter);
+app.use('/post', postRouter);
+app.use('/user', userRouter);
+
 
 // 에러처리
 app.use((req, res, next) => {
