@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 const nunjucks = require('nunjucks');
+var bodyParser = require('body-parser');
+
 
 const indexRouter = require('./routes'); //index생략
+const authRouter = require('./routes/auth');
 //const usersRouter = require('./routes/users');
-//const wordingRouter = require('./routes/wording');
+const wordingRouter = require('./routes/wording');
 
 const app = express();
 app.set('port', process.env.PORT || 3002);
@@ -14,14 +17,16 @@ nunjucks.configure('views', {
   watch: true,
 });
 
+app.use(bodyParser.json());
+app.use(express.urlencoded({extended : false}));
 app.use(express.static(path.join(__dirname, 'public'))); //정적 폴더 설정
 
 app.use('/img', express.static(path.join(__dirname, 'uploads'))); //업로드한 이미지는 upload폴더에
 
 //라우터 처리
 app.use('/', indexRouter);
-//app.use('/auth', authRouter);
-//app.use('/post', postRouter);
+app.use('/auth', authRouter);
+app.use('/wording', wordingRouter);
 //app.use('/user', userRouter);
 
 
