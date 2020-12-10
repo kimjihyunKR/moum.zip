@@ -7,9 +7,13 @@
     {% include "./components/nav.html"%}
     <section class="center">
       <div class="col-4">
-        <h1 class="section-title center-txt">
-          {{type}}
-        </h1>
+        <div class="center-txt">
+          <h1 class="section-title">
+            {{type}}
+          </h1>
+          <p>{{msg}}</p>
+        </div>
+
         <form action="" method="POST" name="authForm" id="authForm" class="vertical" novalidate>
           {% if isJoin %}
           <div class="input-field">

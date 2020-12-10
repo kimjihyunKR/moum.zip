@@ -1,10 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 const db = require('../config/db');
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const router = express.Router();
 
-router.post('/join', async (req, res, next) => {
-  console.log(req.body);
+router.post('/join', isNotLoggedIn ,async (req, res, next) => {
   const { id, password, name } = req.body;
   try {
     //const exUser = await User.findOne({ where: { email } });
@@ -29,7 +29,7 @@ router.post('/join', async (req, res, next) => {
   }
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', isNotLoggedIn ,(req, res, next) => {
   // passport/localStrategy.js를 실행
   passport.authenticate('local', (authError, user, info) => { 
 
