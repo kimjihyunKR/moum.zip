@@ -14,7 +14,11 @@
   margin: 1.25rem 0;
 }
 
-.info-sm {
+.typo-nomarl {
+  font-size: 1rem;
+}
+
+.typo-info-sm {
   color: #a5a5a5;
   font-size: 0.75rem;
 }
