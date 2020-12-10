@@ -1,15 +1,18 @@
 const express = require('express');
 const path = require('path');
 const nunjucks = require('nunjucks');
-var bodyParser = require('body-parser');
-
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const passport = require("passport");
+const passportConfig = require("./passport");  // passport/index.js
 
 const indexRouter = require('./routes'); //index생략
 const authRouter = require('./routes/auth');
-//const usersRouter = require('./routes/users');
-const wordingRouter = require('./routes/wordings');
+const zipsRouter = require('./routes/zips');
 
 const app = express();
+passportConfig(); //passport 설정
 app.set('port', process.env.PORT || 3002);
 app.set('view engine', 'html'); //view engine 설정
 nunjucks.configure('views', {
@@ -21,14 +24,26 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended : false}));
 app.use('/static', express.static(__dirname + '/public'));
 // app.use(express.static(path.join(__dirname, '/public'))); //정적 폴더 설정
+app.use(express.urlencoded({ extended: false }));
+//console.log(process.env.COOKIE_SECRET);
+app.use(cookieParser('moumzipsecret'));
 
-
-app.use('/img', express.static(path.join(__dirname, '/uploads'))); //업로드한 이미지는 upload폴더에
+app.use(session({ //세션 설정
+  resave: false,
+  saveUninitialized: true,
+  secret: 'moumzipsecret',
+  cookie: {
+    httpOnly: true,
+    secure: false,
+  },
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //라우터 처리
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/wording', wordingRouter);
+app.use('/zips', zipsRouter);
 //app.use('/user', userRouter);
 
 

@@ -3,7 +3,9 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    res.render('index');
+    res.render('index',{
+      user : req.user, //세션에 있는 user값 넘기기
+    });
   } catch (err) {
     console.error(err);
     next(err);

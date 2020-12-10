@@ -5,16 +5,21 @@
 
   <ul>
     <li>
-      <a href="/">home</a>
+      <a href="/zips/all">zips</a>
     </li>
     <li>
-      <a href="/myzip">my.zip</a>
+      <a href="/zips/{{user.user_id}}">my.zip</a>
     </li>
     <li></li>
   </ul>
 
   <ul class="nav-auth">
-    <li><a href="/login">Log in</a></li>
-    <li><a href="/join">Join us</a></li>
+    {% if user %}
+      <li><a href="#">{{user.user_id}}</a></li>
+      <li><a href="/auth/logout">Log out</a></li>
+    {% else %}
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/join">Join us</a></li>
+    {% endif %}
   </ul>
 </nav>
