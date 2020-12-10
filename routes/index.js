@@ -29,7 +29,9 @@ router.get('/login', async (req, res, next) => {
     res.render('auth',{
       type : 'Log in',
       isJoin : false,
+      msg : req.session.msg,
     });
+    req.session.msg = null; //비우기
   } catch (err) {
     console.error(err);
     next(err);

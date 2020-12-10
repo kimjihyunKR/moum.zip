@@ -53,7 +53,7 @@ router.post('/login', isNotLoggedIn ,(req, res, next) => {
 router.get('/logout', (req, res) => {
   req.logout();
   req.session.destroy();
-  console.log(req.user.user_id + 'logout 성공');
+  console.log('logout 성공');
   res.redirect('/');
 });
 
