@@ -10,6 +10,7 @@ const passportConfig = require("./passport");  // passport/index.js
 const indexRouter = require('./routes'); //index생략
 const authRouter = require('./routes/auth');
 const zipsRouter = require('./routes/zips');
+const userRouter = require('./routes/user');
 
 const app = express();
 passportConfig(); //passport 설정
@@ -44,7 +45,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/zips', zipsRouter);
-//app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 
 // 에러처리

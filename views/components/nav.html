@@ -17,7 +17,7 @@
 
   <ul class="nav-auth">
     {% if user %}
-      <li><a href="#">{{user.user_id}}</a></li>
+      <li><a href="/user/mypage/{{user.user_id}}">{{user.user_id}}</a></li>
       <li><a href="/auth/logout">Log out</a></li>
     {% else %}
       <li><a href="/login">Log in</a></li>
