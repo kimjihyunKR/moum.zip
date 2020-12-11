@@ -5,11 +5,13 @@
 
   <ul>
     <li>
-      <a href="/zips/all">zips</a>
+      <a href="/zips">zips</a>
     </li>
-    <li>
-      <a href="/zips/{{user.user_id}}">my.zip</a>
-    </li>
+    {% if user %}
+      <li>
+        <a href="/zips/{{user.user_id}}">my.zip</a>
+      </li>
+    {% endif %}
     <li></li>
   </ul>
 
