@@ -5,6 +5,11 @@
   letter-spacing : 0.025em;
   line-height : 1.2;
 }
+
+*::selection {
+  background-color: #ffdd47;
+}
+
 .center-txt {
   text-align: center;
 }
@@ -40,7 +45,19 @@
   font-weight: 700;
 }
 
-/* font color */
-.color-info{
+/* type */
+.typo-info{
+  font-size: 0.75rem;
   color: #a5a5a5;
+}
+
+.typo-error{
+  font-size: 0.75rem;
+  color: #ff7070;
+}
+
+em {
+  font-style: normal;
+  background-color: #ffdd47;
+  padding: 0 0.3rem;
 }
