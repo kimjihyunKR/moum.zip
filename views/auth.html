@@ -15,6 +15,7 @@
         </div>
 
         <form action="" method="POST" name="authForm" id="authForm" class="vertical" novalidate>
+          <input type="hidden" name="returnTo" id="returnTo" value="">
           {% if isJoin %}
           <div class="input-field">
             <p class="typo-info-sm">Name</p>
@@ -60,7 +61,7 @@
         })
       } else {
         login.addEventListener('click',()=>{
-        console.log('#btn-login');
+        document.getElementById('returnTo').value = window.location.pathname;
         authForm.action='/auth/login';
         authForm.submit();
        })
