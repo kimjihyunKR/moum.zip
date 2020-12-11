@@ -18,7 +18,29 @@
   font-size: 1rem;
 }
 
-.typo-info-sm {
-  color: #a5a5a5;
+.typo-large {
+  font-size: 1.5rem;
+}
+
+.typo-small {
   font-size: 0.75rem;
+}
+
+/*font weight */
+.typo-light {
+  font-weight: 300;
+}
+.typo-regular {
+  font-weight: normal;
+}
+.typo-medium {
+  font-weight: 500;
+}
+.typo-bold {
+  font-weight: 700;
+}
+
+/* font color */
+.color-info{
+  color: #a5a5a5;
 }

@@ -49,7 +49,11 @@ button {
 
 /* tag style */
 section, main {
-  padding : 50px 0;
+  padding :50px 0;
+}
+
+.section-top {
+  margin-bottom: 1rem;
 }
 
 /* gnb bar */
@@ -68,12 +72,12 @@ nav {
   padding: 1rem 0;
 }
 
-nav > ul {
+ul {
   text-decoration: none;
   list-style: none;
 }
 
-nav > ul > li {
+ ul > li {
   display: inline-block;
   padding : 0.5rem;
 }
@@ -84,10 +88,13 @@ nav > ul > li {
 }
 
 /* footer */
+footer {
+  padding : 100px 0 50px 0; 
+}
 
 /* input field*/
 .input-field {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 .input-field > p {
   margin-bottom: 3px;
@@ -96,6 +103,13 @@ nav > ul > li {
   width: 100%;
   padding: 0.5rem;
 }
+
+.input-field > textarea {
+  width: 100%;
+  height: 30vh;
+  padding: 0.5rem;
+}
+
 /* default */
 .line {
   width: 100%; 
@@ -123,22 +137,30 @@ nav > ul > li {
 .btn-skeleton:hover{
   background-color: #000;
   color: #fff;
+  transition: all 1s;
 }
-
+.btn-circle{
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+}
 
 /* card */
 .card {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 1rem 0;
+  margin-bottom: 40px;
 }
 
 .card-header {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-content {
   padding : 0 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-footer {
@@ -149,4 +171,43 @@ nav > ul > li {
   content: '+++';
   display: inline;
   margin: 0 0.5rem;
+}
+
+.box-add {
+  margin-bottom: 30px;
+}
+
+.submenu-box {
+  position: relative;
+  float: right;
+}
+
+.submenu-btn:hover{
+  background-color: pink;
+}
+
+.submeu-content {
+  border: 1px solid #000;
+  position: absolute;
+  min-width: 100px;
+  z-index: 100;
+  right: -110px;
+  bottom: -150%;
+}
+
+.submeu-content > * {
+  padding: 12px;
+}
+
+.submeu-content > *:nth-child(2) {
+  border-bottom: 1px solid #000;
+}
+
+.submeu-content > *:hover{
+  background-color: #000;
+  color: #fff;
+}
+
+.dis-none{
+  display: none;
 }
