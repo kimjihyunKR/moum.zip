@@ -41,5 +41,19 @@ router.get('/login', isNotLoggedIn, async (req, res, next) => {
   }
 });
 
+router.get('/add', isLoggedIn, async (req, res, next) => {{
+    try {
+      res.render('edit',{
+        user : req.user,
+        msg : req.session.msg,
+      });
+      req.session.msg = null; //비우기
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  }
+});
+
 
 module.exports = router;
