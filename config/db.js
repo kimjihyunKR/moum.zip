@@ -5,7 +5,8 @@ var db = mysql.createConnection({
   port     : 3306 ,
   user     : 'root',
   password : '1234',
-  database : 'moumzip'
+  database : 'moumzip',
+  dateStrings : 'date',
 });
 
 module.exports = db;
