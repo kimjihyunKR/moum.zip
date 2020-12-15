@@ -19,6 +19,7 @@ router.get('/join', isNotLoggedIn, async (req, res, next) => {
       user : req.user,
       type : 'Join us',
       isJoin : true,
+      msg : req.session.msg,
     });
   } catch (err) {
     console.error(err);

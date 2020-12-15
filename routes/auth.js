@@ -12,7 +12,8 @@ router.post('/join', isNotLoggedIn ,async (req, res, next) => {
     db.query( users.selectByUserid ,[id], function (error, results, fields) {
       if (error) throw error;
       if(results[0]){
-        return res.send('이미 있는 아이디');
+        req.session.msg = 'This id already exists.'
+        return res.redirect('/join');
       }
     });
     
@@ -45,7 +46,7 @@ router.post('/login', isNotLoggedIn ,(req, res, next) => {
         console.error(loginError);
         return next(loginError);
       }
-      return res.redirect(returnTo);
+      return res.redirect('/');
     });
   })(req, res, next);
 });
