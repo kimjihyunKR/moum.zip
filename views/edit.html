@@ -1,0 +1,49 @@
+{% include "./components/top.html"%}
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    {% include "./components/nav.html"%}
+
+    <section class="center col-12">
+      <div class="section-top center-txt">
+        <h1 class="section-title">+++</h1>
+      </div>
+      
+
+      <form action="" method="post" class="card col-10" id="writeForm">
+        {% if data %}
+          <input type="hidden" name="qoute_id" value="{{data.qoute_id}}">
+          <input type="hidden" name="returnTo" value="{{returnTo}}">
+        {% endif %}
+        <div class="input-field">
+          <textarea name="content" id="content" placeholder="* input your qoute" required>{{data.content}}</textarea>
+        </div>
+        
+        <div class="card-footer">
+          <div class="input-field">
+            <input type="text" name="bookname" id="bookname" placeholder="* book title" value="{{data.bookname}}" required>
+          </div>
+          <div class="input-field">
+            <input type="number" name="page" id="page" placeholder="page" value="{{data.page}}" required>
+          </div>
+        </div>
+        <div class="center" id="submitGroup">
+          {% if data %}
+            <button type="submit" class="btn btn-fill col-2 col-m-3" id="btnModify">modify</button>
+          {% else %}
+            <button type="submit" class="btn btn-fill col-2 col-m-3" id="btnAdd">add</button>
+          {% endif %}
+        </div>
+      </form>
+
+  
+    </section>
+   
+    {% include "./components/footer.html"%}
+
+    <script src="/static/src/edit.js"></script>
+  </div>
+
+</body>
+</html>

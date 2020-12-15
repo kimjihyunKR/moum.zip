@@ -1,0 +1,58 @@
+{% include "./components/top.html"%}
+<title>moumzip</title>
+</head>
+<body>
+  <div class="container">
+    {% include "./components/nav.html"%}
+    
+
+
+      <section class="col-12 col-m-6 clearfix">
+        <h1 class="section-title" >
+          @{{user.user_id}}
+        </h1>
+        
+        <dl class="center-row">
+          <div class="dl-item">
+            <dt>user name</dt>
+            <dd>{{user.name}}</dd>
+          </div>
+
+          <div>
+            <dt>all zips</dt>
+            <dd>{{zipsCount}}</dd>
+          </div>
+        </dl>
+
+        <div class="card" style="margin:0;">
+          {% if(user.user_id != user_id) %}
+            <button class="btn btn-skeleton">follow</button>
+          {% else %}
+            <a href="/add"  class="btn btn-skeleton" aria-label="go to write page" >&boxvh;</a>
+          {% endif %}
+
+          {% if(books) %}
+            <a href="/zips/{{user_id}}?order=time" class="btn btn-skeleton">time</a>
+            <a class="btn btn-skeleton active">book</a>
+          {% else %}
+            <a class="btn btn-skeleton active">time</a>
+            <a href="/zips/{{user_id}}?order=book" class="btn btn-skeleton">book</a>
+          {% endif %}
+        </div>
+
+      </section>
+
+    <section class="center col-12 col-m-6 m-h-50">
+      {% if(books) %}
+        {% include "./components/zipListBook.html"%}
+      {% else %}
+        {% include "./components/zipList.html"%}
+      {% endif %}
+    </section>
+    
+    {% include "./components/footer.html"%}
+  </div>
+  
+  <script src="/static/src/zips.js"></script>
+</body>
+</html>

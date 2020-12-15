@@ -1,0 +1,13 @@
+{% if(user.user_id == item.user_id)%}
+  <div class="submenu-box">
+    <button type="button" class="typo-large submenu-btn">
+      &#10022;
+    </button>
+    <form action="" method="post" name="submenuForm" class="submeu-content vertical dis-none">
+      <input type="hidden" name="qoute_id" value="{{item.qoute_id}}">
+      <input type="hidden" name="returnTo" id="returnTo">
+      <button type="button" id="edit">edit</button>
+      <button type="button" id="delete">delete</button>
+    </form>
+  </div>
+{% endif %}

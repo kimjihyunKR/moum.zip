@@ -1,0 +1,65 @@
+{% include "./components/top.html"%}
+<title>moumzip</title>
+</head>
+
+<body>
+  <div class="container">
+    {% include "./components/nav.html"%}
+
+    <section class="col-12 col-m-6  clearfix">
+      <h1 class="section-title" >
+        @{{user.user_id}}
+      </h1>
+      <dl class="center-row">
+        <div class="dl-item">
+          <dt>user name</dt>
+          <dd>{{user.name}}</dd>
+        </div>
+      </dl>
+      <div class="line-black"></div>
+    </section>
+
+
+    <section class="col-12 col-m-6 ">
+      
+      <h1 class="section-title typo-large">change password</h1>
+
+      <div class="card-header">
+        <p class="typo-error dis-none" id="alert-error">
+          Passwords are not correct
+        </p>
+        <p class="typo-success dis-none" id="alert-success">
+          okay
+        </p>
+      </div>
+      
+      <form action="/user/update" method="POST" name="changePassword" id="changePassword" class="vertical col-6">
+        <input type="hidden" name="user_id" value="{{user.user_id}}">
+        <div class="input-field ">
+          <input type="text" name="password1" id="password1" placeholder="new password" required>
+        </div>
+        <div class="input-field ">
+          <input type="password" name="password2" id="password2" placeholder="check new password" required>
+        </div>
+          <button type="button" class="btn btn-fill typo-small float-r" id="btn-change">change</button>   
+      </form>
+      
+      
+    </section>
+
+    <section class="col-12 col-m-6 ">
+      <div class="line-black"></div>
+      <form action="" method="POST" id="deleteAccout" >
+        <input type="hidden" name="user_id" value="{{user.user_id}}">
+        <p class="typo-info">say good bye...</p><br>
+        <button type="button" class="btn btn-skeleton typo-small" id="btn-delete">Delete account</button>
+      </form>
+    </section>
+
+    
+    {% include "./components/footer.html"%}
+    
+  </div>
+  <script src="/static/src/mypage.js"></script>
+</body>
+</html>

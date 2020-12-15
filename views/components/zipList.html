@@ -1,0 +1,21 @@
+{% for item in qoutes %}
+<article class="card col-10 col-m-6 ">
+  <div class="card-header">
+    {% include "./zipSubmenu.html"%}
+    <h2 class="zip-date typo-nomarl">
+        {{item.date}} 
+    </h2>
+  </div>
+  
+  <div class="card-content">
+    <p>
+      {{item.content}} 
+    </p>
+  </div>
+ 
+  <div class="card-footer ">
+    <span class="book-name">"{{item.bookname}}"</span>
+    <span class="book-page">p.{{item.page}}</span>
+  </div>
+</article>
+{% endfor %}

@@ -1,0 +1,16 @@
+  <table class="col-12 col-m-6 m-h-50">
+    <thead>
+      <th>+</th>
+      <th class="text-start">title</th>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td class="text-center">{{loop.index}}</td>
+          <td>{{book.bookname}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+

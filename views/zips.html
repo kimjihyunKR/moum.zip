@@ -1,0 +1,52 @@
+{% include "./components/top.html"%}
+<title>moumzip</title>
+</head>
+
+<body>
+  <div class="container">
+    {% include "./components/nav.html"%}
+
+    <main class="center col-">
+      <h1 class="sr-only">All Wordings list</h1>
+
+      <section>
+        <a href="/add" class="btn btn-skeleton btn-circle text-center" aria-label="go to write page" >&boxvh;</a>
+      </section>
+      
+      
+      {% for item in qoutes %}
+        <article class="card col-10 col-m-6">
+          <div class="card-header">
+            {% include "./components/zipSubmenu.html"%}
+
+            <a href="/zips/{{item.user_id}}?order=time">
+              <h2 class="zip-userid typo-nomarl">
+                @{{item.user_id}} 
+              </h2>
+              <h3 class="zip-date typo-nomarl sr-only">
+                {{item.date}} 
+              </h3>
+            </a>
+            
+          </div>
+          
+          <div class="card-content ">
+            <p>
+              {{item.content}} 
+            </p>
+          </div>
+         
+          <div class="card-footer ">
+            <span class="book-name">"{{item.bookname}}"</span>
+            <span class="book-page">p.{{item.page}}</span>
+          </div>
+        </article>
+     {% endfor %}
+      
+     
+    </main>
+    {% include "./components/footer.html"%}
+  </div>
+  <script src="/static/src/zips.js"></script>
+</body>
+</html>
