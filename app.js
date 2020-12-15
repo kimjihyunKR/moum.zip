@@ -26,8 +26,8 @@ app.use(express.urlencoded({extended : false}));
 app.use('/static', express.static(__dirname + '/public'));
 // app.use(express.static(path.join(__dirname, '/public'))); //정적 폴더 설정
 app.use(express.urlencoded({ extended: false }));
-//console.log(process.env.COOKIE_SECRET);
-app.use(cookieParser('moumzipsecret'));
+console.log(process.env.COOKIE_SECRET);
+// app.use(cookieParser('moumzipsecret'));
 
 app.use(session({ //세션 설정
   resave: false,
