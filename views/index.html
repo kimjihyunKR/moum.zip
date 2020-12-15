@@ -3,8 +3,9 @@
 </head>
 <body>
   <div class="container">
-    {% include "./components/nav.html"%}
 
+    {% include "./components/nav.html"%}
+    
     <section class="col-12 text-center">
       <h1 >moum.zip</h1>
       <div class="flying-wordings"></div>
@@ -13,11 +14,13 @@
     <section class="col-12">
       <div class="box-join center">
         <h1 class="section-title  text-center">collect your wordings</h1>
-        <button id="btn-join" class="btn btn-fill">Join Us</button>
+        <button id="btn-join" class="btn btn-fill" type="button">Join Us</button>
+        
       </div>
     </section>
 
     {% include "./components/footer.html"%}
+
   </div> 
 
   <script>
@@ -26,5 +29,6 @@
       location.href="/join";
     });
   </script>
+
 </body>
 </html>

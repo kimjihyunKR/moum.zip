@@ -9,7 +9,6 @@ btnChange.addEventListener('click', ()=>{
 btnDelete.addEventListener('click', ()=>{
   if(confirm('정말 탈퇴하시겠습니까?')){
     document.getElementById('deleteAccout-delete').submit();
-    
   }
 })
 

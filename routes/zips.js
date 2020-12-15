@@ -1,18 +1,18 @@
 const express = require('express');
 const db = require('../config/db');
-const qoutes = require('../mapper/qoutes');
+const quotes = require('../mapper/quotes');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const router = express.Router();
 
 
 // 모든 zips보기
 router.get('/', (req, res, next) => {
-  db.query( qoutes.selectAll , (error, results, fields) => {
+  db.query( quotes.selectAll , (error, results, fields) => {
     if (error) throw error;
     res.render('zips',{
       user : req.user,
       type : 'list of Wordings',
-      qoutes : results,
+      quotes : results,
     });
   })
 });
@@ -24,18 +24,18 @@ router.get('/:user_id', isLoggedIn,(req, res, next) => {
   let order = req.query.order;
   
   if(order == 'time' || order == undefined){
-    db.query( qoutes.selectByUserid , [userid], (error, results, fields) => {
+    db.query( quotes.selectByUserid , [userid], (error, results, fields) => {
       if (error) throw error;
       zipsCount = results.length
       res.render('selectZip',{
         user : req.user,
         user_id :userid,
         zipsCount : zipsCount,
-        qoutes : results,
+        quotes : results,
       });
     });
   } else if(order == 'book'){
-    db.query(qoutes.selectKindOfBook,[userid],(error,results,fields)=>{
+    db.query(quotes.selectKindOfBook,[userid],(error,results,fields)=>{
       if (error) throw error;
       res.render('selectZip',{
         user : req.user,
@@ -51,7 +51,7 @@ router.get('/:user_id', isLoggedIn,(req, res, next) => {
 router.post('/post', isLoggedIn, (req, res, next) => {
   let user_id = req.user.user_id;
   const { bookname, content, page } = req.body;
-  db.query( qoutes.insert , [ user_id, bookname, content, parseInt(page) ],(error, results, fields) => {
+  db.query( quotes.insert , [ user_id, bookname, content, parseInt(page) ],(error, results, fields) => {
     if (error) throw error;
     res.redirect('/zips');
   })
@@ -59,8 +59,8 @@ router.post('/post', isLoggedIn, (req, res, next) => {
 
 // zip 수정화면으로 이동
 router.post('/edit', isLoggedIn, (req, res, next) => {
-  const { qoute_id , returnTo} = req.body;
-  db.query( qoutes.selectByQouteId , [ qoute_id ],(error, results, fields) => {
+  const { quote_id , returnTo} = req.body;
+  db.query( quotes.selectByQuoteId , [ quote_id ],(error, results, fields) => {
     if (error) throw error;
     res.render('edit',{
       user : req.user,
@@ -73,8 +73,8 @@ router.post('/edit', isLoggedIn, (req, res, next) => {
 
 // zip 수정하기
 router.post('/modify', isLoggedIn, (req, res, next) => {
-  const { bookname, content, page , qoute_id } = req.body;
-  db.query( qoutes.update , [ bookname, content, parseInt(page), qoute_id ],(error, results, fields) => {
+  const { bookname, content, page , quote_id } = req.body;
+  db.query( quotes.update , [ bookname, content, parseInt(page), quote_id ],(error, results, fields) => {
     if (error) throw error;
     res.redirect('/zips');
   })
@@ -82,8 +82,9 @@ router.post('/modify', isLoggedIn, (req, res, next) => {
 
 // zip 삭제하기
 router.post('/delete', isLoggedIn, (req, res, next) => {
-  const { qoute_id , returnTo } = req.body;
-  db.query( qoutes.delete , [ qoute_id ],(error, results, fields) => {
+  const { quote_id , returnTo} = req.body;
+  console.log(returnTo);
+  db.query( quotes.delete , [ quote_id ],(error, results, fields) => {
     if (error) throw error;
     res.redirect(returnTo);
   })

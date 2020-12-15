@@ -13,7 +13,7 @@
 
       <form action="" method="post" class="card col-10" id="writeForm">
         {% if data %}
-          <input type="hidden" name="qoute_id" value="{{data.qoute_id}}">
+          <input type="hidden" name="quote_id" value="{{data.quote_id}}">
           <input type="hidden" name="returnTo" value="{{returnTo}}">
         {% endif %}
         <div class="input-field">
@@ -32,7 +32,7 @@
           {% if data %}
             <button type="submit" class="btn btn-fill col-2 col-m-3" id="btnModify">modify</button>
           {% else %}
-            <button type="submit" class="btn btn-fill col-2 col-m-3" id="btnAdd">add</button>
+            <button type="submit" class="btn btn-fill col-2" id="btnAdd">add</button>
           {% endif %}
         </div>
       </form>

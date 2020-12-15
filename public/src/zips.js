@@ -39,6 +39,7 @@ for (let i = 0; i < submenuBtns.length; i++) {
   submenuContents[i].addEventListener("click", function(e) {
     let target = e.target;
     document.getElementById("returnTo").value = window.location.pathname;
+    console.log(window.location.pathname);
     switch (target.id) {
       case 'edit':
         this.action = '/zips/edit'
