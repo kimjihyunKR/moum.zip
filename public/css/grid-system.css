@@ -21,9 +21,6 @@
 }
 
 @media screen and (min-width : 360px){
-  .container{
-    padding: 0 15px;
-  }
   /* For Mobile */
   .col-m-1 { width: 16.66%; }
   .col-m-2 { width: 33.33%; }

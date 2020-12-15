@@ -10,6 +10,15 @@
   background-color: #ffdd47;
 }
 
+.text-center{
+  text-align: center;
+}
+
+.text-start {
+  text-align: start;
+}
+
+
 .center-txt {
   text-align: center;
 }
@@ -55,6 +64,12 @@
   font-size: 0.75rem;
   color: #ff7070;
 }
+
+.typo-success{
+  font-size: 0.75rem;
+  color: #3ccc60;
+}
+
 
 em {
   font-style: normal;

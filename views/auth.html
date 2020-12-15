@@ -5,40 +5,43 @@
 <body>
   <div class="container">
     {% include "./components/nav.html"%}
-    <section class="center">
-      <div class="col-4">
+    <section class="center col-12">
+      <div class="col-5 col-m-6">
         <div class="center-txt">
           <h1 class="section-title">
             {{type}}
           </h1>
-          <p>{{msg}}</p>
+          <p class="typo-error">
+            {{msg}}
+          </p>
         </div>
 
         <form action="" method="POST" name="authForm" id="authForm" class="vertical" novalidate>
-          <input type="hidden" name="returnTo" id="returnTo" value="">
-          {% if isJoin %}
+          <input type="hidden" name="returnTo" id="returnTo" >
+        
           <div class="input-field">
-            <p class="typo-info-sm">Name</p>
-            <input type="text" name="name" id="name" required>
-          </div>
-          {% endif %}
-
-          <div class="input-field">
-            <p class="typo-info-sm">Id</p>
+            <p class="typo-info">Id</p>
             <input type="text" name="id" id="id" required>
           </div>
 
           <div class="input-field">
-            <p class="typo-info-sm">Password</p>
+            <p class="typo-info">Password</p>
             <input type="text" name="password" id="password" required>
           </div>
 
-          <div class="line"></div>
+          {% if isJoin %}
+          <div class="input-field">
+            <p class="typo-info">Name</p>
+            <input type="text" name="name" id="name" required>
+          </div>
+          {% endif %}
+
+          <div class="line-gray"></div>
 
           {% if isJoin %}
-            <button type="submit" class="btn btn-skeleton" id="btn-join">Join us</button>
+            <button type="button" class="btn btn-skeleton" id="btn-join">Join us</button>
           {% else %}
-            <button type="submit" class="btn btn-fill" id="btn-login">Log in</button>
+            <button type="button" class="btn btn-fill" id="btn-login">Log in</button>
           {% endif %}
 
         </form>
