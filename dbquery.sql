@@ -9,7 +9,7 @@ create table user(
   primary key(user_id)
 );
 
-insert into moumzip.user (user_id, password, name) values ("admin2","12345","jihyun2");
+insert into moumzip.user (user_id, password, name) values ("admin","12345","jihyun2");
 
 
 /* wording */
@@ -24,4 +24,6 @@ create table wording(
   foreign key(user_id) references user(user_id);
 );
 
-insert into moumzip.user (user_id, bookname, cotent) values (,"admin","book is fun", "this is content");
+insert into wordings (user_id, bookname, content) values ("admin", "this is content", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod sit iure commodi quasi nobis. Eaque nisi est inventore ab beatae quisquam,\ne suscipit? distinctio dolorSuscipit ipsum dolor eum harum debitis?");
+
+select * from wordings where bookname='1111' and user_id='admin';
