@@ -50,28 +50,7 @@
     </section>
     {% include "./components/footer.html"%}
 
-    <script>
-      let authForm = document.getElementById('authForm');
-      let join = document.querySelector('#btn-join');
-      let login = document.querySelector('#btn-login');
-      console.log(authForm);
-
-      if(join){
-        join.addEventListener('click',()=>{
-          console.log('#btn-join');
-          authForm.action='/auth/join';
-          authForm.submit();
-        })
-      } else {
-        login.addEventListener('click',()=>{
-        document.getElementById('returnTo').value = window.location.pathname;
-        authForm.action='/auth/login';
-        authForm.submit();
-       })
-      }
-
-    </script>
   </div>
+  <script src="/static/src/auth.js"></script>
 </body>
-
 </html>
