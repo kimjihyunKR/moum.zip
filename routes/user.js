@@ -27,9 +27,8 @@ router.post('/delete', async (req, res, next) => {
   const { user_id } = req.body;
   db.query( users.delete ,[user_id],(error,results,fields) => {
     if(error) if (error) throw error;
-    if(results){
-      res.redirect('/auth/logout');
-    }
+    console.log(results);
+    res.redirect('/auth/logout');
   });
 });
 
